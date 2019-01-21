@@ -1,6 +1,6 @@
-# Compte rendu de la réunion du vendredi 18 janvier 2019
+# Compte rendu de la réunion du vendredi 18 janvier 2019
 
-## Contexte
+## Contexte
 
 Il s'agit de la première réunion dans le cadre du *travail d'étude et de
 recherche* (pourra être abrégé sous la forme « TER » par la suite) sur les
@@ -9,7 +9,7 @@ master d'informatique à l'Université de Strasbourg. L'intitulé du sujet est l
 suivant : « Réduire les systèmes pour mieux virtualiser ? ».
 
 Cette réunion a eu lieu le vendredi 18 janvier 2019 à 14h30 et a durée 30
-minutes environs. Elle a eu lieu le jour même consacré à notre première scéance
+minutes environs. Elle a eu lieu le jour même consacré à notre première séance
 de travail personnel sur le sujet.
 
 Pour cette première séance de travail personnel j'ai rencontré un *empêchement
@@ -32,7 +32,7 @@ grâce à cet article.
 J'ai donc commencé par le lire une première fois en entier, dans le but d'avoir
 un contexte général et repérer les grandes lignes. J'ai ensuite relu plus
 spécifiquement à plusieurs reprises le début de l'article dans le but
-d'identifier les éléments clés, et esssayer de les définir.
+d'identifier les éléments clés, et essayer de les définir.
 
 Dès la première ligne il est question de « libOS ». Ne sachant pas exactement ce
 que c'était, j'ai pris la décision de regarder sur
@@ -45,13 +45,13 @@ Cela me fait grandement penser à un système d'exploitation que l'on construira
 comme avec des briques de LEGO : IPC, réseau, ...
 
 Le fait d'avoir un système d'exploitation spécialisé offre un certain nombre
-d'avantages : il n'y a pas besoin du multi-utilisateurs étant donné que l'on ne
-souhaite lancer qu'une seule application, il n'y a donc pas besoin du support
-multi-applications. Le fait que l'on utilise uniquement les briques utiles pour
-l'application permet de se passer d'un nombre non négligeable de librairies,
-offrant un gain de rapidité (notament au démarrage) et limitant de fait le
-nombre de bugs qui pourraient se trouver dans les librairies. Le système est
-également nettement plus léger.
+d'avantages : il n'y a pas besoin du support multi-utilisateurs étant donné que
+l'on ne souhaite lancer qu'une seule application, il n'y a donc pas besoin du
+support multi-applications. Le fait que l'on utilise uniquement les briques
+utiles pour l'application permet de se passer d'un nombre non négligeable de
+librairies, offrant un gain de rapidité (notamment au démarrage) et limitant de
+fait le nombre de bugs qui pourraient se trouver dans les librairies. Le système
+est également nettement plus léger.
 
 J'avais relevé également l'absence de processus multiple dans les unikernels
 (partie 2.3, fin du premier paragraphe : « But on the downside, **the lack of
@@ -59,7 +59,7 @@ processes** and compile-time determined monolithicity largely reduce Unikernel�
 flexibility, efficiency, and applicability »), mais cela semble étrange et je
 vais essayer d'éclaircir ce point pour la prochaine réunion.
 
-J'avais également relevé quelques autres points concernant notament le rôle de
+J'avais également relevé quelques autres points concernant notamment le rôle de
 l'hyperviseur, etc. mais je préfère garder cela pour la seconde réunion, dès que
 j'aurais davantage de matière.
 
@@ -73,7 +73,7 @@ des processus (petite confusion lors de la réunion à lever), définir claireme
 le mécanisme des pVM qui semble particulièrement intéressant, et continuer à
 creuser ce premier texte.
 
-Un des avantages des unikernels est le fait d'être notament plus sécurisé que
+Un des avantages des unikernels est le fait d'être notamment plus sécurisé que
 des conteneurs. Il faudrait regarder pour quelles raisons.
 
 Pierre David m'a également conseillé une référence [« My VM is Lighter (and
