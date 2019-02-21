@@ -1,0 +1,14 @@
+---
+title: État de l'art des unikernels
+author: Ludovic Muller
+date: Mercredi 13 février 2019
+bibliography: references.bib 
+reference-section-title: Références
+output: pdf_document
+filter: pandoc-citeproc
+csl: bibformat.csl
+papersize: a4paper
+lang: fr
+numbersections: true
+---
+
