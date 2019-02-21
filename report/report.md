@@ -12,7 +12,7 @@ afin de pouvoir poser le contexte de base.
 
 [@zhang2018] semble être parfaitement adapté dans ce cas.
 
-Il y sera égaement expliqué en quoi est-ce qu'on a besoin de virtualiser
+Il y sera également expliqué en quoi est-ce qu'on a besoin de virtualiser
 aujourd'hui et pourquoi est-ce que l'on a aussi besoin d'une certaine souplesse.
 
 # Définition du problème
@@ -20,7 +20,7 @@ aujourd'hui et pourquoi est-ce que l'on a aussi besoin d'une certaine souplesse.
 Cette partie consistera à définir clairement le problème.  Dans notre cas, il
 s'agit d'un besoin de performances sans sacrifier la sécurité.
 
-Il sera aussi question de comparer les solutions actuelles, notament les VM et
+Il sera aussi question de comparer les solutions actuelles, notamment les VM et
 les conteneurs.
 
 Enfin, on pourra se rendre compte que ce qui pourrait parfaitement répondre à la
@@ -32,7 +32,7 @@ Il faut introduire ici la notion de *library OS*, qui consiste à construire un
 noyau de système d'exploitation avec l'aide de différentes librairies, un peu
 comme s'il s'agissait de briques de LEGO.
 
-Il sera notament question du but même d'une telle solution, de ses avantages et
+Il sera notamment question du but même d'une telle solution, de ses avantages et
 enfin, de ses inconvénients (par exemple le fait que c'est quelque chose qui
 demande beaucoup de temps à mettre en place puisqu'il s'agit que quelque chose
 de très spécifique pour chacune des solutions.

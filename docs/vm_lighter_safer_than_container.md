@@ -4,7 +4,7 @@
 
 Il s'agit du second papier de recherche que j'ai lu dans le cadre de ce TER.
 Dans le papier précédent sur KylinX, les conteneurs, les VM et les *picoprocess*
-étaient répidement présentés à la fin.
+étaient rapidement présentés à la fin.
 
 Ce papier devrait permettre de faire une bonne distinction entre une VM et un
 conteneur, et trouver les avantages et inconvénients de ces derniers.
@@ -23,7 +23,7 @@ En effet tout est virtualisé : les périphériques, les processus, les
 utilisateurs, le réseau, ... alors que les conteneurs tournent directement sur
 l'hôte.
 
-Cependant toute la stack autours est beaucoup plus lourde; de base faire tourner
+Cependant toute la stack autour est beaucoup plus lourde; de base faire tourner
 un OS traditionnel complet sur un système hôte est relativement coûteux.
 
 Les unikernels sont des systèmes d'exploitations spécifiques pour faire tourner
@@ -45,7 +45,7 @@ relativement chronophage.
 Les auteurs de ce papier présentent LightVM, une nouvelle solution de
 virtualisation basée sur Xen. Il peut démarrer une VM presque aussi rapidement
 qu'un `fork`/`exec` sur Linux et serait deux fois plus rapide que Docker, qui
-est une soution permettant de lancer des conteneurs.
+est une solution permettant de lancer des conteneurs.
 
 Les points recherchés sont les suivants : une instanciation rapide, la
 possibilité d'avoir un très grand nombre d'instances simultanées et le fait de

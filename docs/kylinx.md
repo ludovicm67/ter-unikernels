@@ -19,7 +19,7 @@ faudra pouvoir être en mesure d'aborder tout le long de ce TER.
 ## Éléments retenus
 
 Ce papier m'a vraiment été utile pour rechercher les éléments essentiels pour
-aborder le monde de la virtualisation et notament des unikernels.
+aborder le monde de la virtualisation et notamment des unikernels.
 
 Dès la première ligne il était question de « LibOS », pour *library OS*.  Ne
 connaissant pas ce terme, j'ai pris l'initiative de me renseigner.  J'ai pu
@@ -59,7 +59,7 @@ systèmes, ce qui augmente fortement la surface d'attaque de l'hôte.  Cependant
 ils seraient plus performants que des OS classiques.
 
 Il est aussi question rapidement des picoprocess; il s'agirait en quelque sorte
-de conteneurs implémentants un LibOS entre l'hôte et l'invité.
+de conteneurs implémentant un LibOS entre l'hôte et l'invité.
 
 # Critiques
 
