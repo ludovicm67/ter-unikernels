@@ -6,7 +6,7 @@ bibliography: references.bib
 reference-section-title: Références
 output: pdf_document
 filter: pandoc-citeproc
-csl: bibformat.csl
+csl: report/bibformat.csl
 papersize: a4paper
 lang: fr
 numbersections: true
