@@ -13,6 +13,9 @@ bibliographie dans le rendu avec la présentation souhaitée (l'utilisation des
 numéros entre crochets comme dans les articles de recherche au lieu de citer à
 chaque fois la liste des auteurs en plein milieu du texte).
 
+J'ai également rédigé les résumés des deux premiers articles étudiés afin que
+l'on puisse faire un point sur le fond et la forme.
+
 En plus de cela, j'ai travaillé sur les articles suivants :
 
   - Unikernel: Rise of the Virtual Library Operating System (acmqueue)
@@ -29,7 +32,7 @@ et concepts essentiels à propos des unikernels, puisque les différents points
 relevés se retrouvent dans la majorité des papiers.
 
 Le papier de l'acmqueue semble vraiment être un article introductif pour entrer
-dans le monde des uniernels : il aurait pu être le papier de référence pour le
+dans le monde des unikernels : il aurait pu être le papier de référence pour le
 sujet.
 
 Concernant l'article sur OSv, il faudrait voir s'il ne s'agirait pas de quelque
