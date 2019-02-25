@@ -1,55 +1,179 @@
 # Introduction
 
-Dans cette partie seront définies :
+Auourd'hui de plus en plus de services sont proposés aux utilisateurs. Le nombre
+de ressources à traiter est également fortement croissante et c'est ainsi que de
+nouveaux centres de données sont construits au fur et à mesure partout dans le
+monde.
 
-  - virtualisation
+Au départ, une machine physique était attribuée à un service particulier.
+Lorsque la demande augmentait, on ajoutait simplement une nouvelle machine
+dédiée uniquement à ce service.
 
-  - machine virtuelle (VM)
+Cependant le nombre de services proposés ne cessant de croître, il n'est plus
+possible de se contenter de ne faire tourner qu'un seul service par machine,
+notament pour des raisons budgétaires et pour un déploiement beaucoup plus
+rapide.
 
-  - conteneurs
+Les fournisseurs de services souhaitant gagner en qualité pour faire face à la
+concurrence. Cette qualité se traduit notament par une démultiplication des
+données à travers le globe, afin de rapprocher le contenu des utilisateurs
+finaux pour diminuer les temps de latences et d'être plus robustes en cas de
+panne. Pour eux, pouvoir faire tourner un grand nombre de services sur une même
+machine permettrait d'économiser le nombre de machines et de mieux les
+rentabiliser, du fait que l'on utilisera pleinement les ressources d'une machine
+au lieu de n'utiliser qu'un faible pourcentage sur plusieures machines.
 
-afin de pouvoir poser le contexte de base.
+Un objectif également recherché, est de gagner en souplesse, afin d'allouer
+uniquement les ressources nécessaires en temps réel, et de rapprocher les
+services de là où la demande est ponctuellement la plus forte; adapter l'offre à
+la demande en permanence pour satisfaire au mieux les différents clients.
 
-[@zhang2018] semble être parfaitement adapté dans ce cas.
+Pour satisfaire tous ces points, la virtualisation répond parfaitement à ces
+attentes. En effet, virtualiser des systèmes sur une seule machine permettrait
+d'exécuter indépendamment un grand nombre de services.
 
-Il y sera également expliqué en quoi est-ce qu'on a besoin de virtualiser
-aujourd'hui et pourquoi est-ce que l'on a aussi besoin d'une certaine souplesse.
+La virtualisation répond à un besoin d'isolation. En effet, si l'on souhaite
+lancer un grand nombre de services différents sur une même machine physique, un
+service ne doit pas compromettre un des autres services tournant sur la machine.
+Les systèmes d'exploitations traditionnels repondent déjà en partie à ce besoin
+d'isolation, en virtualisant la mémoire et en isolant le matériel avec la
+séparation de l'espace utilisateur de l'espace système via les appels système.
+En virtualisation de système d'exploitation le besoin d'isolation va encore plus
+loin, puisqu'il faut arriver à isoler la mémoire entre chacun des systèmes
+d'exploitation ainsi que les opérations de lectures et d'écritures.  Virtualiser
+ainsi un système d'exploitation est un peu comme si l'on créait des machines
+virtuelles à l'intérieur d'une seule et même machine physique; c'est la raison
+pour laquelle on parle justement de machines virtuelles, ou VM pour *virtual
+machines* en anglais.
+
+Enfin, on peut dire que la virtualisation offre une certaine sécurité, du fait
+de cette isolation, et qu'il est très facile de gérer une machine virtuelle
+compromise; on peut en recréer une très rapidement. Virtualiser offre également
+une certaine tolérence aux pannes, puisqu'il est possible de duppliquer ou
+migrer très simplement des machines virtuelles qui tourneraient sur un matériel
+défaillant par exemple. Enfin, certaines entreprises ont besoin de faire tourner
+certaines applications qui seraient obsolètes (applications *legacy*); utiliser
+la virtualisation permettrait à ces entreprises de continuer à utiliser ces
+applications sans sacrifier la sécurité de leur parc informatique. On constate
+donc que la virtualisation offre une réelle souplesse dans la gestion des
+services.
+
+Aujourd'hui, d'autres solutions que la virtualisation de systèmes d'exploitation
+traditionnels ont émergés [@madhavapeddy2013, @zhang2018]. On utilise par
+exemple aujourd'hui de plus en plus le mécanismes des conteneurs : au lieu de
+virtualiser complètement un système d'exploitation, on fait tourner directement
+l'application sur la machine hôte, en interceptant les appels systèmes, offrant
+ainsi une alternative beaucoup plus légère et rapide que la virtualisation
+classique. Cependant le nombre d'appels système ne cessant de croître, cela peut
+poser certains problèmes de sécurité.
 
 # Définition du problème
 
-Cette partie consistera à définir clairement le problème.  Dans notre cas, il
-s'agit d'un besoin de performances sans sacrifier la sécurité.
+La virtualisation offre une réelle souplesse comme nous avons pu le voir.
+Cependant virtualiser un système d'exploitation traditionnel peut s'avérer être
+plutôt lourd. Pour mettre de côté cette lourdeur, le mécanisme des conteneurs
+peut s'avérer être particulièrement pratique. Du fait qu'ils tournent
+directement sur la machine hôte, on économise ainsi toute la couche de la
+virtualisation d'un système complet, et on peut donc faire tourner un nombre
+nettement plus élevé de machines du fait que les ressources en terme de
+stockage, de mémoire et de calculs sont moindres par rapport à l'utilisation
+massive de machines virtuelles.
 
-Il sera aussi question de comparer les solutions actuelles, notamment les VM et
-les conteneurs.
+Cependant comme nous l'avons dit au point précédent, l'utilisation des
+conteneurs peut s'avérer être problématique sur les questions de sécurité,
+notament du fait qu'ils tournent directement sur l'hôte [@madhavapeddy2013].
 
-Enfin, on pourra se rendre compte que ce qui pourrait parfaitement répondre à la
-demande pourraient être les unikernels.
+Ce que l'on souhaiterait, ce serait d'avoir d'une part la possibilité d'avoir
+une isolation forte qui permettrait de garantir une certaine sécurité, et
+d'autre part, avoir quelque chose de très léger, que l'on peut déployer en masse
+de manière adaptive, qui soit extrêmement rapide pour servir et s'adapter
+continuellement à la demande et ainsi faire face à la concurrence, tout en
+offrant une qualité de service sûre.
+
+Cela fait quelques années que des équipes de chercheurs se posent la question et
+une solution semble emmerger : les unikernels.
+
+Que sont les unikernels ? En quoi diffèrent-ils des solutions actuellement
+utilisées ? Comment arrivent-ils à offrir des gains réels en performances sans
+sacrifier la sécurité, chose que l'on arrivait pas à satisfaire simultanément
+jusqu'à présent avec des conteneurs et des VM traditionnelles ?
 
 # Les unikernels, késako ?
 
-Il faut introduire ici la notion de *library OS*, qui consiste à construire un
-noyau de système d'exploitation avec l'aide de différentes librairies, un peu
-comme s'il s'agissait de briques de LEGO.
+Les unikernels pourraient être décrits simplement comme étant un système
+d'exploitation créé à partir d'un assemblage de briques de LEGO, chacune de ces
+briques étant une librairie élémentaire pour faire une tâche de base, comme par
+exemple la partie réseau, ou bien la communication IPC, etc. Un système
+construit de cette manière à coup de librairies de base s'appelle une *library
+OS* ou *libOS*.
 
-Il sera notamment question du but même d'une telle solution, de ses avantages et
-enfin, de ses inconvénients (par exemple le fait que c'est quelque chose qui
-demande beaucoup de temps à mettre en place puisqu'il s'agit que quelque chose
-de très spécifique pour chacune des solutions.
+Le principe des unikernels, est qu'au lieu de lancer un gros système
+d'exploitation composé d'un grand nombre d'applications, il va se charger de ne
+faire tourner que le binaire d'une application, et donc de ne faire tourner
+qu'un seul processus [@zhang2018]. On va ainsi uniquement utiliser les briques
+dont l'application a réellement besoin pour fonctionner.
+
+Pour éviter d'avoir à supporter l'ensemble des périphériques possibles, dans les
+cas des unikernels on va partir du principe qu'il tournera dans une machine
+virtuelle, et que ce sera à l'hyperviseur de s'occuper du matériel et d'en faire
+l'abstraction.
+
+On se retrouve donc avec une image extrêmement légère, et comme il y a un lien
+de corrélation entre la taille des images et le temps de boot, les unikernels
+peuvent démarrer beaucoup plus rapidement que les systèmes traditionnels tout en
+garantissant une sécurité étant donné qu'ils tournent directement au sein d'une
+machinne virtuelle et que le fait de n'inclure que le strict nécessaire pour
+faire tourner l'unique application, il n'est même pas possible de se connecter
+sur la machine, on ne dépend également que d'un nombre très restreint de
+librairies, limitant le nombre de failles et bugs possibles, ce qui limite
+fortement la surface d'attaque [@manco2017].
+
+Cependant pour obtenir ces gains de performances tout en garantissant une
+certaine sécurité nécessite beaucoup de temps, étant donné qu'il faut arriver à
+spécialiser le plus possible le système à l'application souhaitée.
 
 # Les différentes solutions
 
-Dans cette partie il faudra détailler les différentes solutions proposées
-trouvées dans les différents papiers de recherche.
+Nous allons désormais regarder quelles sont les principales solutions
+d'unikernels à l'heure actuelle, et essayer de les comparer entre elles.
 
-## D'un point de vue performances
+Premièrement, un point commun que à relever est que l'ensemble des solutions
+semblent toutes se baser sur le même hyperviseur : Xen. Il semble donc être une
+référence essentielle, crédible et fiable dans le domaine de la virtualisation.
+Cependant un nombre important de solutions n'hésitent pas à réimplémenter
+certaines parties de Xen, comme [@manco2017] qui ont réimplémenté le XenStore.
 
-On va d'abord se focaliser sur l'aspect performances...
+KylinX [@zhang2018] offre un mécanisme de pVM, pour *process-like VM*. Ce
+procédé permet de réaliser des `fork` en instanciant une nouvelle machine
+virtuelle. La machine ayant fait l'appel à `fork` sera mise en pause le temps de
+la création de la pVM et recevra ensuite un moyen de la contacter.
 
-## D'un point de vue sécurité
+LightVM [@manco2017], une nouvelle solution de virtualisation basée sur Xen
+permet de démarrer une machine virtuelle presque aussi rapidement qu'un `fork`
+ou un `exec` sur Linux et serait deux fois plus rapide que Docker, une solution
+permettant de lancer des conteneurs.
 
-...et puis voir comment les différentes solutions font pour garantir l'aspect
-sécurité.
+Tinyx [@manco2017], une solution de build automatisée permet de créer des images
+de machines virtuelles Linux minimalistes en utilisant une approche
+particulièrement originale. En effet, il va tenter de retirer une à une les
+différentes options de boot en testant si l'application continue toujours de
+fonctionner comme souhaitée avec l'aide d'un jeu de test. Si un des tests ne
+passe plus, l'option est réactivée, car essentielle.
+
+Il faudrait détailler Jitsu [@madhavapeddy2015] qui utilise les unikernels pour
+servir des applications. Ils ont fait quelques optimisations sur Xen, notament
+pour le faire fonctionner sous ARM.
+
+Il faudrait également aborder OSv [@kivity2014], et voir si la solution ne
+serait pas trop axée pour la JVM.
+
+Il faudrait voir pour parler des exokernels [@engler1995], puisque ce serait de
+ça que s'inspireraient les uniernels. Il faudrait également parler des
+alternatives telles que les lambdas d'Amazon par exemple [@krol2017] et
+[@spillner2018].
+
+Il faudrait continuer à détailler ainsi les différentes solutions et voir pour
+entrer davantage dans les détails pour la suite de ce rapport.
 
 # Évaluation des performances
 
@@ -58,8 +182,18 @@ solutions étudiées tout au long du semestre lors de ce travail de recherche, e
 voir pour évaluer les performances, si les gains en performances n'impactent pas
 la sécurité, être critique sur les résultats présentés dans les divers papiers.
 
+Une présentation idéale serait sous forme d'un tableau récapitulatif, offrant
+ainsi aux lecteurs une vision d'ensemble directe sans avoir à lire l'ensemble de
+ce rapport.
+
+Ci-dessous un exemple de tableau :
+
+| Solution          | Temps de boot
+|-------------------|---------------
+| KylinX (pVM fork) | 1.3 ms
+| LightVM           | 4ms
+
 # Conclusion
 
 Faire le bilan de l'ensemble, parler de l'avenir des unikernels, orientations
 dans le monde de la recherche et les différentes pistes à creuser.
-
