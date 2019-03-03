@@ -1,6 +1,6 @@
 # Introduction
 
-Auourd'hui de plus en plus de services sont proposés aux utilisateurs. Le nombre
+Aujourd'hui de plus en plus de services sont proposés aux utilisateurs. Le nombre
 de ressources à traiter est également fortement croissante et c'est ainsi que de
 nouveaux centres de données sont construits au fur et à mesure partout dans le
 monde.
@@ -11,11 +11,11 @@ dédiée uniquement à ce service.
 
 Cependant le nombre de services proposés ne cessant de croître, il n'est plus
 possible de se contenter de ne faire tourner qu'un seul service par machine,
-notament pour des raisons budgétaires et pour un déploiement beaucoup plus
+notamment pour des raisons budgétaires et pour un déploiement beaucoup plus
 rapide.
 
 Les fournisseurs de services souhaitent gagner en qualité pour faire face à la
-concurrence. Cette qualité se traduit notament par une démultiplication des
+concurrence. Cette qualité se traduit notamment par une démultiplication des
 données à travers le globe, afin de rapprocher le contenu des utilisateurs
 finaux pour diminuer les temps de latence et d'être plus robuste en cas de
 panne. Pour ces fournisseurs, pouvoir faire tourner un grand nombre de services
@@ -50,7 +50,7 @@ Enfin, on peut dire que la virtualisation offre une certaine sécurité, du fait
 de cette isolation, et qu'il est plus facile de gérer une machine virtuelle
 compromise qu'une machine physique; on peut en recréer une plus rapidement en
 clônant une VM de base par exemple. Virtualiser offre également une certaine
-tolérence aux pannes, puisqu'il est possible de duppliquer ou migrer très
+tolérance aux pannes, puisqu'il est possible de dupliquer ou migrer très
 simplement des machines virtuelles qui tourneraient sur un matériel défaillant
 par exemple. Enfin, certaines entreprises ont besoin de faire tourner certaines
 applications qui seraient obsolètes (applications *legacy*) : utiliser la
@@ -65,8 +65,7 @@ aujourd'hui de plus en plus le mécanismes des conteneurs : au lieu de
 virtualiser complètement un système d'exploitation, on fait tourner directement
 l'application sur la machine hôte, en interceptant les appels systèmes, offrant
 ainsi une alternative beaucoup plus légère et rapide que la virtualisation
-classique. Cependant le nombre d'appels système ne cessant de croître, cela peut
-poser certains problèmes de sécurité.
+classique.
 
 # Définition du problème
 
@@ -80,14 +79,18 @@ machines du fait que les ressources nécessaires en matière de stockage, de
 mémoire et de calcul sont moindres par rapport à l'utilisation massive de
 machines virtuelles.
 
-Cependant comme nous l'avons dit au point précédent, l'utilisation des
-conteneurs peut s'avérer être problématique sur les questions de sécurité,
-notament du fait qu'ils tournent directement sur l'hôte [@madhavapeddy2013].
+Cependant l'utilisation des conteneurs peut s'avérer être problématique sur les
+questions de sécurité, notamment du fait qu'ils tournent directement sur l'hôte
+[@madhavapeddy2013], et que le nombre d'appels système ne cesse de croître
+[@manco2017] : aujourd'hui un noyau Linux en compte environ 400. L'API des
+appels système permet aux conteneurs d'interagir avec le système d'exploitation
+hôte et offre une gestion des processus, des threads, de la mémoire, du réseau,
+du système de fichiers, de la comunication IPC, etc.
 
 Ce que l'on souhaiterait, ce serait d'avoir d'une part la possibilité d'avoir
 une isolation forte qui permettrait de garantir une certaine sécurité, et
 d'autre part, avoir quelque chose de très léger, que l'on peut déployer en masse
-de manière adaptive, qui soit extrêmement rapide pour servir et s'adapter
+de manière adaptative, qui soit extrêmement rapide pour servir et s'adapter
 continuellement à la demande et ainsi faire face à la concurrence, tout en
 offrant une qualité de service sûre.
 
@@ -123,7 +126,7 @@ On se retrouve donc avec une image extrêmement légère, et comme il y a un lie
 de corrélation entre la taille des images et le temps de boot, les unikernels
 peuvent démarrer beaucoup plus rapidement que les systèmes traditionnels tout en
 garantissant une sécurité étant donné qu'ils tournent directement au sein d'une
-machinne virtuelle et que le fait de n'inclure que le strict nécessaire pour
+machine virtuelle et que le fait de n'inclure que le strict nécessaire pour
 faire tourner l'unique application, il n'est même pas possible de se connecter
 sur la machine, on ne dépend également que d'un nombre très restreint de
 bibliothèques, limitant le nombre de failles et bugs possibles, ce qui limite
@@ -144,8 +147,8 @@ Un point commun à relever est que l'ensemble des solutions étudiées jusqu'à
 présent dans le cadre de ce travail se basent toutes sur le même hyperviseur :
 Xen. Il s'agit donc d'une référence essentielle, crédible et fiable dans le
 domaine de la virtualisation.  Cependant un nombre important de solutions
-n'hésitent pas à réimplémenter certaines parties de Xen, comme [@manco2017] qui
-ont réimplémenté le XenStore.
+n'hésitent pas à ré-implémenter certaines parties de Xen, comme [@manco2017] qui
+ont ré-implémenté le XenStore.
 
 KylinX [@zhang2018] offre un mécanisme de pVM, pour *process-like VM*. Ce
 procédé permet de réaliser des `fork` en instanciant une nouvelle machine
@@ -166,25 +169,27 @@ passe plus, l'option est réactivée, car essentielle.
 
 ## Solutions restantes à étudier
 
-Il serait bien d'étudier Jitsu [@madhavapeddy2015] qui utilise les unikernels
-pour servir des applications. Les auteurs ont fait quelques optimisations sur
-Xen, notament pour le faire fonctionner sous ARM.
+Je pense regarder dans un premier temps, jusqu'à mi-avril continuer à regarder
+d'autres solutions tout en approfondissant celles que j'ai pu trouver jusqu'à
+présent. Parmi les solutions que je souhaiterait étudier prochainnement se
+trouvent :
 
-Il est possible également d'aborder OSv [@kivity2014], et vérifier si la
-solution ne serait pas trop axée pour la JVM.
+  - Jitsu [@madhavapeddy2015] qui utilise les unikernels pour servir des
+    applications. Les auteurs ont fait quelques optimisations sur Xen, notamment
+    pour le faire fonctionner sous ARM.
 
-Un autre point intéressant à étudier serait de parler des exokernels
-[@engler1995], puisque ce serait de cela que s'inspireraient les uniernels. Dans
-la même mesure, aborder des alternatives telles que les lambdas d'Amazon par
-exemple [@krol2017; @spillner2018] permettrait de voir ce qui se fait à côté.
+  - OSv [@kivity2014], en vérifiant si la solution ne serait pas trop axée pour
+    la JVM.
 
-Concernant le planning, je compte me consacrer à l'étude d'autres solutions tout
-en approfondissant celles que j'ai déjà pu aborder dans le cadre de mon travail
-jusqu'à présent, et ce jusqu'à début avril. Ensuite, je compte regarder en
-détail la partie concernant l'évaluation des performances en comparant les
-différentes solutions entre elles jusqu'à la fin du mois d'avil, puis enfin, en
-mai, je compte finaliser la rédaction du rapport final qui sera à rendre pour le
-12 mai normalement.
+  - les exokernels [@engler1995], puisque ce serait de cela que s'inspireraient
+    les unikernels. Dans la même mesure, des alternatives telles que les lambda
+    d'Amazon par exemple [@krol2017; @spillner2018] permettrait de voir ce qui
+    se fait à côté.
+
+Ensuite, de début/mi-avril jusqu'à début mai, je compte regarder en détail la
+partie concernant l'évaluation des performances en comparant les différentes
+solutions entre elles, puis enfin, en mai, je compte finaliser la rédaction du
+rapport final qui sera à rendre pour le 12 mai normalement.
 
 # Évaluation des performances
 
