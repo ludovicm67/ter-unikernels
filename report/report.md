@@ -18,15 +18,14 @@ Les fournisseurs de services souhaitent gagner en qualité pour faire face à la
 concurrence. Cette qualité se traduit notamment par une démultiplication des
 données à travers le globe, afin de rapprocher le contenu des utilisateurs
 finaux pour diminuer les temps de latence et d'être plus robuste en cas de
-panne. Pour ces fournisseurs, pouvoir faire tourner un grand nombre de services
-sur une même machine permettrait d'économiser le nombre de machines et de mieux
-les rentabiliser, du fait que l'on utilisera pleinement les ressources d'une
-machine au lieu de n'utiliser qu'un faible pourcentage sur plusieurs machines.
+panne, du fait qu'il y aura toujours une machine présente pour prendre le
+relais. On arrive donc à gagner en souplesse en étant capable d'adapter l'offre
+et la demande en temps réel.
 
-Un objectif également recherché est de gagner en souplesse, afin d'allouer
-uniquement les ressources nécessaires en temps réel, et de rapprocher les
-services de là où la demande est ponctuellement la plus forte; adapter l'offre à
-la demande en permanence pour satisfaire au mieux les différents clients.
+Pour ces fournisseurs, pouvoir faire tourner un grand nombre de services sur une
+même machine permettrait d'économiser le nombre de machines et de mieux les
+rentabiliser, du fait que l'on utilisera pleinement les ressources d'une machine
+au lieu de n'utiliser qu'un faible pourcentage sur plusieurs machines.
 
 Pour satisfaire tous ces points, la virtualisation répond parfaitement à ces
 attentes. En effet, virtualiser des systèmes sur une seule machine permettrait
@@ -81,11 +80,13 @@ machines virtuelles.
 
 Cependant l'utilisation des conteneurs peut s'avérer être problématique sur les
 questions de sécurité, notamment du fait qu'ils tournent directement sur l'hôte
-[@madhavapeddy2013], et que le nombre d'appels système ne cesse de croître
+[@madhavapeddy2013] et que le nombre d'appels système ne cesse de croître
 [@manco2017] : aujourd'hui un noyau Linux en compte environ 400. L'API des
 appels système permet aux conteneurs d'interagir avec le système d'exploitation
 hôte et offre une gestion des processus, des threads, de la mémoire, du réseau,
-du système de fichiers, de la comunication IPC, etc.
+du système de fichiers, de la comunication IPC, etc. Le fait que les conteneurs
+tournent directement sur l'hôte nécessite également une homogénéité entre le
+système d'exploitation hôte et invité, ce qui peut être limitant.
 
 Ce que l'on souhaiterait, ce serait d'avoir d'une part la possibilité d'avoir
 une isolation forte qui permettrait de garantir une certaine sécurité, et
@@ -123,14 +124,15 @@ virtuelle, et que ce sera à l'hyperviseur de s'occuper du matériel et d'en fai
 l'abstraction.
 
 On se retrouve donc avec une image extrêmement légère, et comme il y a un lien
-de corrélation entre la taille des images et le temps de boot, les unikernels
-peuvent démarrer beaucoup plus rapidement que les systèmes traditionnels tout en
-garantissant une sécurité étant donné qu'ils tournent directement au sein d'une
-machine virtuelle et que le fait de n'inclure que le strict nécessaire pour
-faire tourner l'unique application, il n'est même pas possible de se connecter
-sur la machine, on ne dépend également que d'un nombre très restreint de
-bibliothèques, limitant le nombre de failles et bugs possibles, ce qui limite
-fortement la surface d'attaque [@manco2017].
+de corrélation entre la taille des images et le temps de boot du fait du temps
+de chargement de l'ensemble en mémoire [@manco2017]; de ce fait, les unikernels
+peuvent démarrer beaucoup plus rapidement que les systèmes traditionnels. De
+plus, ils garantissent davatnage de sécurité étant donné qu'ils tournent
+directement au sein d'une machine virtuelle et n'incluent que le strict
+nécessaire pour faire tourner l'unique application, ce qui fait qu'il n'est même
+pas possible de se connecter sur la machine. En outre, ils ne dépendent que d'un
+nombre très restreint de bibliothèques, limitant le nombre de failles et bugs
+possibles, ce qui limite fortement la surface d'attaque [@manco2017].
 
 Cependant, obtenir ces gains de performances tout en garantissant une certaine
 sécurité nécessite beaucoup de temps, étant donné qu'il faut arriver à
@@ -171,8 +173,7 @@ passe plus, l'option est réactivée, car essentielle.
 
 Je pense regarder dans un premier temps, jusqu'à mi-avril continuer à regarder
 d'autres solutions tout en approfondissant celles que j'ai pu trouver jusqu'à
-présent. Parmi les solutions que je souhaiterait étudier prochainnement se
-trouvent :
+présent. Voici certaines des solutions que je souhaiterais étudier prochainnement :
 
   - Jitsu [@madhavapeddy2015] qui utilise les unikernels pour servir des
     applications. Les auteurs ont fait quelques optimisations sur Xen, notamment
