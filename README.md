@@ -12,4 +12,4 @@ texlive-xetex texlive-lang-french texlive-bibtex-extra
 
 Pour générer le rapport au format pdf, il suffit de lancer la commande `make`.
 
-Le rapport sera généré sous le nom `report.md`.
+Le rapport sera généré sous le nom `report.pdf`.
