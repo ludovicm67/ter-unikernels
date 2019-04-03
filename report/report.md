@@ -108,7 +108,11 @@ d'exploitation créé à partir d'un assemblage de briques de LEGO, chacune de c
 briques étant une bibliothèque élémentaire permettant une tâche de base, comme
 par exemple la partie réseau, ou bien la communication IPC, etc. Un système
 construit de cette manière à partir de bibliothèques de base s'appelle une
-*library OS* ou *libOS*. Un des premiers libOS était Exokernel [@engler1995]
+*library OS* ou *libOS*. Le but de cette architecture et d'exécuter un maximum
+de code dans l'espace utilisateur directement, et de n'avoir qu'un noyau
+minimaliste. Les premiers systèmes d'exploitations de ce type étaient Exokernel
+[@engler1995] et
+Nemesis^[https://www.cl.cam.ac.uk/research/srg/netos/projects/archive/nemesis/]
 dans les années 1990s.
 
 Le principe des unikernels est qu'au lieu de lancer un système d'exploitation
@@ -172,9 +176,48 @@ pour le faire fonctionner sous ARM.
 
 OSv [@kivity2014], un OS conçu pour le cloud qui peut uniquement être lancée
 depuis un hyperviseur, capable de faire tourner une unique application avec des
-gains en performances principalement sur la partie réseau. Les auteurs ont cherchés à réutiliser un maximum de composants déjà existants. Par exemple, le système de fichier utilisé est ZFS, récupéré depuis FreeBSD, qui permet de s'assurer de l'intégrité des données et propose un mécanisme de snapshots et de gestion de volumes. Sont aussi supportés ramfs, dans le cas où l'on souhaiterait booter sans disque, ainsi que devfs, un système de fichier simple pour visualiser les périphériques. Ils ont également récupéré les fichiers de header C depuis le projet `musl libc`, le VFS (=Virtual File System) depuis le projet Prex, et les drivers ACPI depuis le projet ACPICA. Concernant la partie réseau, elle a également été importé au départ de FreeBSD, mais elle a été longuement réécrite.
+gains en performances principalement sur la partie réseau. Les auteurs ont
+cherchés à réutiliser un maximum de composants déjà existants. Par exemple, le
+système de fichier utilisé est
+ZFS^[https://www.freebsd.org/doc/handbook/zfs.html], récupéré depuis FreeBSD,
+qui permet de s'assurer de l'intégrité des données et propose un mécanisme de
+snapshots et de gestion de volumes. Sont aussi supportés ramfs, dans le cas où
+l'on souhaiterait booter sans disque, ainsi que devfs, un système de fichier
+simple pour visualiser les périphériques. Ils ont également récupéré les
+fichiers de header C depuis le projet `musl libc`^[https://www.musl-libc.org/],
+le VFS (=Virtual File System) depuis le projet
+Prex^[https://github.com/tworaz/prex], et les drivers ACPI depuis le projet
+ACPICA^[https://www.acpica.org/]. Concernant la partie réseau, elle a également
+été importé au départ de FreeBSD, mais elle a été longuement réécrite.
 
-Drawbridge (https://www.microsoft.com/en-us/research/project/drawbridge/#!publications) qui est un prototype de recherche conçu par l'équipe de recherche de Microsoft, qui permet de lancer des applications de manière sandboxées au sein d'un Windows modifié sous forme de libOS.
+Drawbridge^[https://www.microsoft.com/en-us/research/project/drawbridge/#!publications]
+[@porter2011] qui est un prototype de recherche conçu par l'équipe de recherche
+de Microsoft, qui permet de lancer des applications de manière sandboxées au
+sein d'un Windows 7 modifié sous forme de libOS.
+
+Rumprun^[https://github.com/rumpkernel/rumprun], un unikernel dans lequel on
+intègre un binaire d'application C, C++, Erlang, Go, Java, JavaScript, Python,
+Ruby ou Rust par exemple à un kernel appelé `rump`^[http://rumpkernel.org/]. Ce
+qui permet de créer des applications bootables, légères et portables.
+
+UniK^[https://github.com/solo-io/unik] qui permet de compiler des applciations
+sous forme d'image bootable légère plutôt que sous forme de binaire.
+
+UniK supporte les types d'unikernels suivants :
+
+  - AWS Firecracker : pour compiler et lancer une application en GO,
+
+  - rump : pour compiler et lancer une application en Python, Node.js ou en Go,
+
+  - OSv : pour compiler et lancer une application en Java, en Node.js, C ou en C++,
+
+  - IncludeOS : pour compiler et lancer une application en C++,
+
+  - MirageOS : pour compiler et lancer une application en OCaml.
+
+Ainsi que les fournisseurs suivants : AWS Firecracker, Virtualbox, AWS, Google Cloud, vSphere, QEMU, UKVM, Xen, OpenStack, Photon Controller.
+
+Le fait de supporter un grand nombre de types d'unikernels permet de générer des unikernels pouvant faire tourner des applications écrites dans un nombre variés de langages. Le fait qu'il supporte autant de fournisseurs fait de UniK un projet prometteur.
 
 # Différents problèmes
 
@@ -193,63 +236,25 @@ Les chercheurs utilisent très souvent les métriques suivantes lorsqu'ils
 
   - les performances réseau (débits)
 
+  - les changements de contexte (transitions entre l'espace système et l'espace utilisateur)
+
 # Conclusion
 
-Faire le bilan de l'ensemble :
+Les unikernels offrent des avantages certains, tels que de très bonnes
+performances avec une sécurité plus importante que lors de l'utilisation de
+conteneurs comme Docker ^[https://www.docker.com/] par exemple, tout en ayant
+une faible empreinte mémoire.
 
-  - points positifs :
-
-    - performances
-
-    - sécurité
-
-    - faible empreinte mémoire
+Cependant, construire une image spécifique pour chaque application est très
+coûteux en terme de temps, du fait que chaque applciation a ses propres besoins,
+mais cela tend à devenir plus abordable suite à des projets comme UniK. Un autre
+problème est que l'on est amené à recompiler tout l'ensemble lorsque l'on
+souhaite effectuer des changements, étant donné que l'on intègre que le strict
+minimum pour lancer le binaire de l'application, et non ceux pour effectuer les
+changements.
   
-  - points négatifs :
-
-    - beaucoup de temps requis pour construire quelque chose de très spécifique,
-      et ce pour une seule application
-    
-    - recompiler tout l'ensemble lorsque l'on souhaite effectuer des changements, vu qu'on intègre que le strict minimum pour lancer l'application, pas pour faire des changements
-
-Parler de l'avenir des unikernels :
-
-  - les lambdas que propose Amazon par exemple [@krol2017; @spillner2018]
-
-  - `rumprun` : unikernel dans lequel on intègre un binaire d'application C,
-    C++, Erlang, Go, Java, JS, Python, Ruby ou Rust à un kernel appelé `rump`
-    (http://rumpkernel.org/). Permet de créer des applications bootables,
-    légères et portables.
-
-  - UniK (https://github.com/solo-io/unik) qui permet de compiler des
-    applciations sous forme d'image bootable légère plutôt que sous forme de
-    binaire.
-
-    ```
-    Supported unikernel types:
-      - AWS Firecracker: UniK supports compiling GO code into AWS Firecracker MicroVMs
-      - rump: UniK supports compiling Python, Node.js and Go code into rumprun unikernels
-      - OSv: UniK supports compiling Java, Node.js, C and C++ code into OSv unikernels
-      - IncludeOS: UniK supports compiling C++ code into IncludeOS unikernels
-      - MirageOS: UniK supports compiling OCaml, code into MirageOS unikernels
-
-    Supported providers:
-      - AWS Firecracker
-      - Virtualbox
-      - AWS
-      - Google Cloud
-      - vSphere
-      - QEMU
-      - UKVM
-      - Xen
-      - OpenStack
-      - Photon Controller
-    ```
-
-Orientations dans le monde de la recherche.
-
-Les différentes pistes à creuser :
-
-  - pourquoi pas pousser d'avantage les outils de build autmatiques tels que
-    Tinyx [@manco2017] ? Cela permettrait de rendre les unikernels plus
-    abordables.
+Aujourd'hui il existe d'autres systèmes concurrents aux unikernels, tels que les
+lambdas proposés par Amazon (AWS Lambda ^[https://aws.amazon.com/fr/lambda/])
+par exemple [@krol2017; @spillner2018], qui permettent d'exécuter des fonctions
+de manière indépendante, et de pouvoir adapter les ressources nécessaires à la
+demande en temps réel.

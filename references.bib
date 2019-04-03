@@ -117,4 +117,19 @@
   url           = {http://arxiv.org/abs/1703.07562},
 }
 
+@Inproceedings{porter2011,
+  author = {Porter, Donald E. and Boyd-Wickizer, Silas and  and Olinsky, Reuben and Hunt, Galen},
+  title = {Rethinking the Library OS from the Top Down},
+  year = {2011},
+  month = {March},
+  abstract = {
+  This paper revisits an old approach to operating system construction, the library OS, in a new context. The idea of the library OS is that the personality of the OS on which an application depends runs in the address space of the application. A small, fixed set of abstractions connects the library OS to the host OS kernel, offering the promise of better system security and more rapid independent evolution of OS components.
+
+  We describe a working prototype of a Windows 7 library OS that runs the latest releases of major applications such as Microsoft Excel, PowerPoint, and Internet Explorer. We demonstrate that desktop sharing across independent, securely isolated, library OS instances can be achieved through the pragmatic reuse of net-working protocols. Each instance has significantly lower overhead than a full VM bundled with an application: a typical application adds just 16MB of working set and 64MB of disk footprint. We contribute a new ABI below the library OS that enables application mobility. We also show that our library OS can address many of the current uses of hardware virtual machines at a fraction of the overheads. This paper describes the first working prototype of a full commercial OS redesigned as a library OS capable of running significant applications. Our experience shows that the long-promised benefits of the library OS approach—better protection of system integrity and rapid system evolution—are readily obtainable.
+  },
+  publisher = {Association for Computing Machinery, Inc.},
+  url = {https://www.microsoft.com/en-us/research/publication/rethinking-the-library-os-from-the-top-down/},
+  edition = {Proceedings of the 16th International Conference on Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
