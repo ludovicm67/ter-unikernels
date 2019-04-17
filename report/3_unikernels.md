@@ -38,3 +38,15 @@ qui limite fortement la surface d'attaque [@manco2017].
 Cependant, obtenir ces gains de performances tout en garantissant une certaine
 sécurité nécessite beaucoup de temps de configuration, étant donné qu'il faut
 spécialiser le plus possible le système pour l'application souhaitée.
+
+![Isolation et spécialisation avec les
+unikernels\label{iso_spe_uni}](./img/isolation_et_specialisation_avec_unikernels.svg)
+
+La figure \ref{iso_spe_uni} nous montre en (a) ce qui se fait de manière
+classique : lancer un gestionnaire de conteneurs dans une VM. L'ensemble des
+conteneurs se partagent le même noyau. Si l'on souhaite isoler les différents
+services, on peut lancer une VM par conteneur, comme en (b). Cela introduit
+hélas un surcoût en termes de ressources, dû au faut que l'on doivent dupliquer
+à chaque fois le noyau. Le fait de travailler avec des noyaux spécialisés pour
+l'application, les unikernels (c), permet de limiter ce surcoût, tout en
+assurant une isolation forte.
