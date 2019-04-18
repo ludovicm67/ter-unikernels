@@ -65,12 +65,17 @@ UniK supporte les types d'unikernels suivants :
 
   - rump : pour compiler et lancer une application en Python, Node.js ou en Go,
 
-  - OSv : pour compiler et lancer une application en Java, en Node.js, C ou en C++,
+  - OSv : pour compiler et lancer une application en Java, en Node.js, C ou en
+    C++,
 
   - IncludeOS : pour compiler et lancer une application en C++,
 
   - MirageOS : pour compiler et lancer une application en OCaml.
 
-Ainsi que les fournisseurs suivants : AWS Firecracker, Virtualbox, AWS, Google Cloud, vSphere, QEMU, UKVM, Xen, OpenStack, Photon Controller.
+Ainsi que les fournisseurs suivants : AWS Firecracker, Virtualbox, AWS, Google
+Cloud, vSphere, QEMU, UKVM, Xen, OpenStack, Photon Controller.
 
-Le fait de supporter un grand nombre de types d'unikernels permet de générer des unikernels pouvant faire tourner des applications écrites dans un nombre variés de langages. Le fait qu'il supporte autant de fournisseurs fait de UniK un projet prometteur.
+Le fait de prendre en charge un grand nombre de types d'unikernels permet de
+générer des unikernels pouvant faire tourner des applications écrites dans un
+nombre variés de langages. Le fait qu'il supporte autant de fournisseurs fait de
+UniK un projet prometteur.

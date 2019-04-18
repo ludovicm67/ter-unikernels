@@ -18,11 +18,11 @@ tourner que le binaire d'une application, et donc de ne faire tourner qu'un seul
 processus [@zhang2018]. On va ainsi uniquement utiliser les briques dont
 l'application a réellement besoin pour fonctionner.
 
-Pour éviter d'avoir à supporter l'ensemble des périphériques possibles, dans les
-cas des unikernels on va partir du principe qu'il tournera dans une machine
-virtuelle, et que ce sera à l'hyperviseur de s'occuper du matériel et d'en faire
-l'abstraction. Un hyperviseur est un programme qui permet la gestion (création,
-lancement, ...) des VM.
+Pour éviter d'avoir à prendre en charge l'ensemble des périphériques possibles,
+dans les cas des unikernels on va partir du principe qu'il tournera dans une
+machine virtuelle, et que ce sera à l'hyperviseur de s'occuper du matériel et
+d'en faire l'abstraction. Un hyperviseur est un programme qui permet la gestion
+(création, lancement, ...) des VM.
 
 On se retrouve donc avec une image extrêmement légère, et comme il y a un lien
 de corrélation entre la taille des images et le temps de boot du fait du temps

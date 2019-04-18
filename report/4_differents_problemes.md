@@ -5,12 +5,13 @@ unikernel. Nous avons dit dans la partie précédente que les unikernels étaien
 des systèmes légers où l'où incluait que le strict nécessaire. Comment est-ce
 que l'on fait pour choisir les composants absoluments nécessaires ?
 
-La majorité des unikernels, pour éviter d'avoir à supporter une liste importante
-de périphériques à gérer via une multitude de pilotes de périphériques, partent
-du principe qu'ils seront lancés au sein d'une machine virtuelle gérée par un
-hyperviseur, en l'occurrence Xen. Cependant, cela induit un surcoût du fait que
-la machine hôte doit émuler les différents périphériques. Comment est-ce que les
-diverses solutions proposées se débrouillent pour limiter ce surcoût ?
+La majorité des unikernels, pour éviter d'avoir à prendre en charge une liste
+importante de périphériques à gérer via une multitude de pilotes de
+périphériques, partent du principe qu'ils seront lancés au sein d'une machine
+virtuelle gérée par un hyperviseur, en l'occurrence Xen. Cependant, cela induit
+un surcoût du fait que la machine hôte doit émuler les différents périphériques.
+Comment est-ce que les diverses solutions proposées se débrouillent pour limiter
+ce surcoût ?
 
 Si l'on souhaite déployer une application existante dans un unikernel, comment
 est-ce qu'on s'y prend pour transormer un système d'exploitation classique en
