@@ -1,6 +1,6 @@
 # UniK
 
-La solution qui nous semble la plus intéressante à tester est Unik, de part par
+La solution qui nous semble la plus intéressante à tester est UniK, d'une part
 le fait qu'elle soit relativement bien documentée, et d'autre part par le fait
 qu'elle permet de compiler et d'inclure des applications à un nombre
 relativement correct d'unikernels, ce qui est parfait pour expérimenter.
@@ -72,9 +72,9 @@ redémarrer la machine virtuelle en question manuellement, ce qui ne serait pas
 envisageable dans un environement de production.
 
 Nous avons pu constater dans une conférence donnée par Idit Levine en
-2016^[https://www.youtube.com/watch?v=wcZWg3YtvnY], que l'API de docker est en
+2016^[<https://www.youtube.com/watch?v=wcZWg3YtvnY>], que l'API de docker est en
 mesure de communiquer avec celle de UniK et qu'il était possible d'intégrer des
-unikernels créées par UniK à Kubernetes^[https://kubernetes.io/], qui est un
+unikernels créées par UniK à Kubernetes^[<https://kubernetes.io/>], qui est un
 orchestrateur de conteneurs qui est de plus en plus utilisé.
 
 ## Conclusion

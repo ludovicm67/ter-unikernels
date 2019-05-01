@@ -17,10 +17,10 @@ virtuelle. La machine ayant fait l'appel à `fork` sera mise en pause le temps d
 la création de la pVM et recevra ensuite un moyen de la contacter, ceci permet
 de répondre au besoin de supporter plusieurs processus.
 
-LightVM [@manco2017], une nouvelle solution de virtualisation, permet de démarrer
-une machine virtuelle presque aussi rapidement qu'un `fork` ou un `exec` sur
-Linux et serait deux fois plus rapide que Docker, une solution permettant de
-lancer des conteneurs.
+LightVM [@manco2017], une nouvelle solution de virtualisation, permet de
+démarrer une machine virtuelle presque aussi rapidement qu'un `fork` ou un
+`exec` sur Linux et serait deux fois plus rapide que Docker, une solution
+permettant de lancer des conteneurs.
 
 Tinyx [@manco2017], une solution de *build* automatisée permet de créer des
 images de machines virtuelles Linux minimalistes en utilisant une approche
@@ -39,28 +39,28 @@ depuis un hyperviseur, capable de faire tourner une unique application avec des
 gains en performances principalement sur la partie réseau. Les auteurs ont
 cherchés à réutiliser un maximum de composants déjà existants. Par exemple, le
 système de fichier utilisé est
-ZFS^[https://www.freebsd.org/doc/handbook/zfs.html], récupéré depuis FreeBSD,
+ZFS^[<https://www.freebsd.org/doc/handbook/zfs.html>], récupéré depuis FreeBSD,
 qui permet de s'assurer de l'intégrité des données et propose un mécanisme de
 snapshots et de gestion de volumes. Sont aussi supportés ramfs, dans le cas où
 l'on souhaiterait booter sans disque, ainsi que devfs, un système de fichier
 simple pour visualiser les périphériques. Ils ont également récupéré les
-fichiers de header C depuis le projet `musl libc`^[https://www.musl-libc.org/],
-le VFS (=Virtual File System) depuis le projet
-Prex^[https://github.com/tworaz/prex], et les drivers ACPI depuis le projet
-ACPICA^[https://www.acpica.org/]. Concernant la partie réseau, elle a également
-été importé au départ de FreeBSD, mais elle a été longuement réécrite.
+fichiers de header C depuis le projet `musl
+libc`^[<https://www.musl-libc.org/>], le VFS (=Virtual File System) depuis le
+projet Prex^[<https://github.com/tworaz/prex>], et les drivers ACPI depuis le
+projet ACPICA^[<https://www.acpica.org/>]. Concernant la partie réseau, elle a
+également été importé au départ de FreeBSD, mais elle a été longuement réécrite.
 
-Drawbridge^[https://www.microsoft.com/en-us/research/project/drawbridge/#!publications]
+Drawbridge^[<https://www.microsoft.com/en-us/research/project/drawbridge/#!publications>]
 [@porter2011] qui est un prototype de recherche conçu par l'équipe de recherche
 de Microsoft, qui permet de lancer des applications de manière sandboxées au
 sein d'un Windows 7 modifié sous forme de libOS.
 
-Rumprun^[https://github.com/rumpkernel/rumprun], un unikernel dans lequel on
+Rumprun^[<https://github.com/rumpkernel/rumprun>], un unikernel dans lequel on
 intègre un binaire d'application C, C++, Erlang, Go, Java, JavaScript, Python,
-Ruby ou Rust par exemple à un kernel appelé `rump`^[http://rumpkernel.org/]. Ce
-qui permet de créer des applications bootables, légères et portables.
+Ruby ou Rust par exemple à un kernel appelé `rump`^[<http://rumpkernel.org/>].
+Ce qui permet de créer des applications bootables, légères et portables.
 
-UniK^[https://github.com/solo-io/unik] qui permet de compiler des applications
+UniK^[<https://github.com/solo-io/unik>] qui permet de compiler des applications
 sous forme d'image bootable légère plutôt que sous forme de binaire. UniK permet
 de construire des images pour AWS Firecracker, Virtualbox, AWS, Google Cloud,
 vSphere, QEMU, UKVM, Xen, OpenStack, Photon Controller et en lancer des

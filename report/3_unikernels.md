@@ -9,7 +9,7 @@ construit de cette manière à partir de bibliothèques de base s'appelle une
 de code dans l'espace utilisateur directement, et de n'avoir qu'un noyau
 minimaliste. Les premiers systèmes d'exploitations de ce type étaient Exokernel
 [@engler1995] et
-Nemesis^[https://www.cl.cam.ac.uk/research/srg/netos/projects/archive/nemesis/]
+Nemesis^[<https://www.cl.cam.ac.uk/research/srg/netos/projects/archive/nemesis/>]
 dans les années 1990s.
 
 Le principe des unikernels est qu'au lieu de lancer un système d'exploitation
