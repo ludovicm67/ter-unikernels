@@ -18,3 +18,5 @@ lambdas proposés par Amazon (AWS Lambda [@krol2017;
 @spillner2018]^[<https://aws.amazon.com/fr/lambda/>]) par exemple, qui
 permettent d'exécuter des fonctions de manière indépendante, et de pouvoir
 adapter les ressources nécessaires à la demande en temps réel.
+
+\nolinenumbers

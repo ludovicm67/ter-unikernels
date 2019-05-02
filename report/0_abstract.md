@@ -1,4 +1,6 @@
 
+\linenumbers
+
 ---
 
 *Dans le monde de la virtualisation, on utilise en grande partie des conteneurs

@@ -10,5 +10,7 @@ papersize: a4paper
 lang: fr
 numbersections: true
 geometry: "margin=3cm"
+header-includes:
+  - \usepackage[right, modulo]{lineno}
 ---
 
