@@ -1,9 +1,5 @@
 # Différentes solutions
 
-Nous allons désormais regarder quelles sont les principales solutions
-d'unikernels à l'heure actuelle et voir comment est-ce qu'elles répondent aux
-différents problèmes soulevés dans la partie précédente.
-
 L'ensemble des solutions étudiées jusqu'à présent dans le cadre de ce travail se
 basent toutes sur le même hyperviseur : Xen. Il s'agit donc d'une référence
 essentielle, crédible et fiable dans le domaine de la virtualisation. Cependant

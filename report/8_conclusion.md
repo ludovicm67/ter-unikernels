@@ -12,9 +12,9 @@ problème est que l'on est amené à recompiler tout l'ensemble lorsque l'on
 souhaite effectuer des changements, étant donné que l'on intègre que le strict
 minimum pour lancer le binaire de l'application, et non ceux pour effectuer les
 changements.
-  
+
 Aujourd'hui il existe d'autres systèmes concurrents aux unikernels, tels que les
-lambdas proposés par Amazon (AWS Lambda^[<https://aws.amazon.com/fr/lambda/>])
-par exemple [@krol2017; @spillner2018], qui permettent d'exécuter des fonctions
-de manière indépendante, et de pouvoir adapter les ressources nécessaires à la
-demande en temps réel.
+lambdas proposés par Amazon (AWS Lambda [@krol2017;
+@spillner2018]^[<https://aws.amazon.com/fr/lambda/>]) par exemple, qui
+permettent d'exécuter des fonctions de manière indépendante, et de pouvoir
+adapter les ressources nécessaires à la demande en temps réel.

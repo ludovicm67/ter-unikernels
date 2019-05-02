@@ -31,3 +31,7 @@ D'un point de vue sécurité, le fait de tourner au sein d'une machine virtuelle
 permet d'assurer une certaine étenchéitée. Est-ce que les différents auteurs
 proposant des solutions d'unikernels portent attention à d'autres aspects pour
 assurer une certaine sécurité ?
+
+Nous verrons dans la partie suivant quelles sont les principales solutions
+d'unikernels à l'heure actuelle et comment est-ce qu'elles répondent aux
+différents problèmes soulevés tout au long de cette partie.

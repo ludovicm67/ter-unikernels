@@ -1,0 +1,39 @@
+ - réduire les marges
+ - schéma : 
+      - libOS
+      - OS classique (MMU, etc.. ) VS unikernel
+      - 
+
+
+4 . 
+
+nous allons voir les réponses dans la partie suivante
+
+
+5 . 
+
+enlever la partie "on va répondre aux questions de la partie précedénte"
+
+
+
+6.
+
+dire l'objectif : mettre en oeuvre et mesurer les performances
+
+
+7.
+
+La majorité se comparent par rapport à ça
+
+table + numéro de table
+
+7.1. OSv
+
+utile machine pour mesurer les perfs d'app, blabla
+
+
+7.2 ...
+
+coonytrairement à X il utile Y pour faire ça
+
+
