@@ -4,3 +4,6 @@
 *.sav
 report.*
 !sujet.pdf
+.vscode/
+bench_tests/httpd_go/httpd_go
+bench_tests/httpd_java/target/

@@ -1,0 +1,2 @@
+main_file: target/httpd_java-1.0-SNAPSHOT-jar-with-dependencies.jar
+build_command: java -version
