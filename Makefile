@@ -30,4 +30,4 @@ $(NAME).tex: $(INPUTS)
 
 .PHONY: clean
 clean:
-	$(RM) img/*.pdf $(NAME).*
+	$(RM) img/*.pdf $(NAME).* -- ^img/icube.pdf
