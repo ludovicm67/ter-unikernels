@@ -51,11 +51,16 @@ entre la pVM mère et la pVM fille, possiblement avec un `ping`.
 
 ## MirageOS
 
+La mesure des latences est faite avec `ping`. Les mesures des débits a été fait
+avec `iperf` [@tirumala2003]. Pour mesurer les performances d'application, ils
+ont mis en place un serveur web et mesuré les performances avec l'aide de
+`httperf`.
+
 ## Jitsu
 
-La mesure des débits est fait avec `iperf` [@tirumala2003], les latences réseaux
-avec `ping`, la latence de démarrage de service en regardant combien de temps
-cela prends avant que ça ne réponde aux différentes requêtes. Un point
+Tout comme MirageOS, la mesure des débits est fait avec `iperf`, les latences
+réseaux avec `ping`, la latence de démarrage de service en regardant combien de
+temps cela prends avant que ça ne réponde aux différentes requêtes. Un point
 intéressant est qu'ils utilisent une Cubieboard, qui est un nano-ordinateur,
 pour mesurer la puissance utilisée ainsi que pour tester l'autonomie. Pour
 mesurer la sécurité de leur solution, ils ont pris la liste des dernières

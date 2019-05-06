@@ -14,7 +14,9 @@ d'unikernel pour répondre aux différentes problématiques soulevées précéde
 
 ### ClickOS
 
-ClickOS [@martins2014].
+ClickOS [@martins2014], un système d'exploitation sur mesure pour du traitement
+réseau. Les machines virtuelles sont légères, démarrent rapidement et
+n'utilisent que très peu de mémoire.
 
 ### Drawbridge
 
@@ -34,7 +36,8 @@ besoin, comme par exemple un système de fichier avec Halfs (*Ha*skel*l* *F*ile
 
 ### IncludeOS
 
-IncludeOS [@bratterud2015].
+IncludeOS [@bratterud2015] est un *libOS* minimal, à l'état de projet de
+recherche, fait pour faire tourner du code C++ sur du matériel virtualisé.
 
 ### KylinX
 
@@ -127,10 +130,11 @@ Jitsu [@madhavapeddy2015] est un serveur DNS qui utilise les unikernels pour
 servir des applications à la demande. Les auteurs ont fait quelques
 optimisations sur Xen, notamment pour le faire fonctionner sous ARM.
 
-![Principe de fonctionnement de Jitsu](img/jitsu.jpg){width=300px}
+![Principe de fonctionnement de
+Jitsu\label{jitsu_fig}](img/jitsu.jpg){width=300px}
 
 Cette solution permet de *booter* des unikernels à la demande suite à une simple
-requête DNS, comme on peut le voir sur la figure \ref{jitsu}^[Source :
+requête DNS, comme on peut le voir sur la figure \ref{jitsu_fig}^[Source :
 <https://github.com/mirage/jitsu>]. Par exemple cela permet de démarrer une VM
 lorsque l'on souhaite accéder à une page web.
 
