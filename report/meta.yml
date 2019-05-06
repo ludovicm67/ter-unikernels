@@ -1,16 +1,55 @@
 ---
+# some basic informations about the document
+entity: Université de Strasbourg
+service: |
+  Cursus Master Ingénierie \
+  Informatique, Systèmes et Réseaux
+context: Travail d'Étude et de Recherche
 title: État de l'art des unikernels
-author: Ludovic Muller
-date: Vendredi 10 mai 2019
-bibliography: references.bib
-reference-section-title: Références
+author: Ludovic \textsc{Muller}
+date: Mardi 7 mai 2019
+subject: Réduire les systèmes pour mieux virtualiser ?
+abstract: |
+  Dans le monde de la virtualisation, on utilise en grande partie des conteneurs pour déployer des services, notamment pour leurs performances et leur facilité de déploiement.
+  Cependant les conteneurs n'offrent pas une solution d'isolation complète par design, alors que c'est le cas pour les machines virtuelles.
+  Néanmoins, lancer une machine virtuelle avec un système d'exploitation  traditionnel pour exécuter chacune des différentes applications entraîne un surcoût important.
+  Un idéal serait d'avoir les performances d'un conteneurs et l'isolation fournie par les machines virtuelles. C'est ce à quoi essayent de répondre les unikernels.
+
+# supervisors
+supervisor1_title: Enseignant référent
+supervisor1: Pierre \textsc{David}
+supervisor2_title: Rapporteur
+supervisor2: Antoine \textsc{Gallais}
+
+# logos
+logo1: img/unistra.eps
+logo2: img/icube.pdf
+
+# format
+papersize: a4
 output: pdf_document
+
+# bibliography
+bibliography: references.bib
 biblio-style: plain
-papersize: a4paper
+
+# language settings
 lang: fr
+reference-section-title: Références
+subject_title: Sujet
+author_title: Auteur
+
+# style settings
 numbersections: true
+line_numbers: false
+colorlinks: true
+toc-depth: 2 
 geometry: "margin=3cm"
 header-includes:
   - \usepackage[right, modulo]{lineno}
----
 
+# all tables
+toc: true # table of contents
+lot: false # list of tables
+lof: false # list of figures
+---

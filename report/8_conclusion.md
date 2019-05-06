@@ -6,7 +6,7 @@ conteneurs comme Docker^[<https://www.docker.com/>] par exemple, tout en ayant
 une faible empreinte mémoire.
 
 Cependant, construire une image spécifique pour chaque application est très
-coûteux en terme de temps, du fait que chaque applciation a ses propres besoins,
+coûteux en termes de temps, du fait que chaque application a ses propres besoins,
 mais cela tend à devenir plus abordable suite à des projets comme UniK. Un autre
 problème est que l'on est amené à recompiler tout l'ensemble lorsque l'on
 souhaite effectuer des changements, étant donné que l'on intègre que le strict
@@ -18,5 +18,3 @@ lambdas proposés par Amazon (AWS Lambda [@krol2017;
 @spillner2018]^[<https://aws.amazon.com/fr/lambda/>]) par exemple, qui
 permettent d'exécuter des fonctions de manière indépendante, et de pouvoir
 adapter les ressources nécessaires à la demande en temps réel.
-
-\nolinenumbers

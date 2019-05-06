@@ -1,7 +1,6 @@
 NAME := report
 IMGS := $(wildcard img/*.svg)
 INPUTS := report/meta.yml \
-	report/0_abstract.md \
 	report/1_introduction.md \
 	report/2_definition_probleme.md \
 	report/3_unikernels.md \
@@ -24,7 +23,10 @@ img/%.pdf: img/%.svg
 	rsvg-convert -f pdf -a -o $@ $<
 
 $(NAME).tex: $(INPUTS)
-	pandoc -s --lua-filter=filter.lua --natbib -N -o $@ $(INPUTS)
+	pandoc -s \
+		--lua-filter=filter.lua \
+		--template=report/template.tex \
+		--natbib -N -o $@ $(INPUTS)
 
 .PHONY: clean
 clean:
