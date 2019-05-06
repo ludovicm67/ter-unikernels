@@ -30,4 +30,7 @@ $(NAME).tex: $(INPUTS)
 
 .PHONY: clean
 clean:
-	$(RM) img/*.pdf $(NAME).* -- ^img/icube.pdf
+	$(RM) \
+		img/isolation_et_specialisation_avec_unikernels.pdf \
+		img/libos.pdf \
+		$(NAME).*
