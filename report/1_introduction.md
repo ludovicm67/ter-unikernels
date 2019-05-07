@@ -47,7 +47,7 @@ anglais.
 
 Enfin, on peut dire que la virtualisation offre une certaine sécurité, du fait
 de cette isolation, et qu'il est plus facile de gérer une machine virtuelle
-compromise qu'une machine physique; on peut en recréer une plus rapidement en
+compromise qu'une machine physique ; on peut en recréer une plus rapidement en
 clonant une VM de base par exemple. Virtualiser offre également une certaine
 tolérance aux pannes, puisqu'il est possible de dupliquer ou migrer très
 simplement des machines virtuelles qui tourneraient sur un matériel défaillant

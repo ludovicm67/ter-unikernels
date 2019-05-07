@@ -5,7 +5,7 @@
 
 La figure \ref{linux_archi} nous montre l'architecture d'un système Linux
 classique. On y retrouve toute la partie matérielle (CPU, RAM, disques, réseau,
-...). Par dessus, nous avons le noyau Linux, qui tourne dans l'espace noyau qui
+...). Dessus, nous avons le noyau Linux, qui tourne dans l'espace noyau qui
 est un mode privilégié, qui va se charger de la gestion des processus, de la
 mémoire, du système de fichier, des différents pilotes de périphériques et de
 toute la couche protocolaire réseau. Les applications quant à elles, tournent

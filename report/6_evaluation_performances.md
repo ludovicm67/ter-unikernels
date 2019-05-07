@@ -47,7 +47,7 @@ taille du tas avec `JVM balloon`.
 
 [@zhang2018] ne décrit pas spécifiquement quels outils ont été utilisés pour
 faire les différentes mesures. Néanmoins, la mesure de la communication
-inter-pVM a été faire en mesurant la latence de communication entre la pVM mère
+inter-pVM a été faite en mesurant la latence de communication entre la pVM mère
 et la pVM fille, possiblement avec un `ping`.
 
 ## MirageOS
@@ -59,7 +59,7 @@ ont mis en place un serveur web et mesuré les performances avec l'aide de
 
 ## Jitsu
 
-Tout comme MirageOS, la mesure des débits est fait avec `iperf`, les latences
+Tout comme MirageOS, la mesure des débits est faite avec `iperf`, les latences
 réseau avec `ping`, la latence de démarrage de service en regardant combien de
 temps cela prend avant que ça ne réponde aux différentes requêtes. Un point
 intéressant est qu'ils utilisent une Cubieboard, qui est un nano-ordinateur,

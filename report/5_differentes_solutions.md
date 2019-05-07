@@ -143,7 +143,7 @@ cela permet de démarrer une VM lorsque l'on souhaite accéder à une page web.
 Concernant l'aspect sécurité, ils ont pris la liste des dernières vulnérabilités
 et ont pu constater que nombreuses d'entre elles affectent les systèmes réseaux
 embarqués, le noyau Linux et Xen. Les applications déployées avec Jitsu ne sont
-que sensibles aux vulnérabilités de Xen ainsi que de quelques une de Linux, le
+que sensibles aux vulnérabilités de Xen ainsi que de quelques unes de Linux, le
 reste étant complètement éliminé grâce au mécanisme d'isolation.
 
 ### LightVM
@@ -197,13 +197,13 @@ Certains n'hésitent pas à réécrire certaines parties de Xen, comme LightVM q
 est une réécriture du plan de contrôle de l'hyperviseur, afin de gagner en
 performances.
 
-Les unikernels étant spécialisés, il ne peuvent pas forcément faire tourner
-n'importe quel programme. Certains par exemple ne font que tourner des
+Les unikernels étant spécialisés, ils ne peuvent pas forcément faire tourner
+n'importe quelle application. Certains par exemple ne font que tourner des
 programmes en OCaml, comme MirageOS, d'autres permettent de faire tourner
 quelques programmes en provenance de langages différents, comme c'est le cas par
 exemple avec rumprun, qui permet de faire tourner des applications écrites en C,
 C++, Erlang, Go, Java, JavaScript, Python, Ruby ou Rust. Le choix de MirageOS de
-ne supporter que OCaml est surtout motivé par le fait qu'il s'gisse d'un langage
+ne supporter que OCaml est surtout motivé par le fait qu'il s'agisse d'un langage
 de haut niveau, il y a moins de risques de soucis avec la gestion de la mémoire
 et on limite le nombre de lignes de code.
 
@@ -212,5 +212,5 @@ le fait MirageOS permet de limiter les attaques dues à une mauvaise gestion de
 la mémoire par exemple. Les auteurs de certaines solutions, par exemple Jitsu,
 ont pris la liste des dernières vulnérabilités connues et ont pu voir toutes
 celles qui pourraient impacter leur solution. Finalement l'ensemble des
-unikernels, de par leur spécialisation, limitent drastiquement la surface
+unikernels, par leur spécialisation, limitent drastiquement la surface
 d'attaque.

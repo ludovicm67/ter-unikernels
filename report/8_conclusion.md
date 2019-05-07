@@ -10,7 +10,7 @@ ainsi que des images bien plus légères.
 
 Cependant, construire une image spécifique pour chaque application est très
 coûteux en termes de temps, du fait que chaque application a ses propres besoins,
-mais cela tend à devenir plus abordable suite à des projets comme UniK. Un autre
+mais cela tend à devenir plus abordable notamment avec des projets comme UniK. Un autre
 problème est que l'on est amené à recompiler tout l'ensemble lorsque l'on
 souhaite effectuer des changements, étant donné que l'on intègre que le strict
 minimum pour lancer le binaire de l'application, et non ceux pour effectuer les

@@ -53,7 +53,7 @@ Nous avons pu effectuer quelques tests sur notre application en Go avec une base
 avec l'unikernel rump. Nous avons pu découvrir que l'application continuait à
 répondre aux requêtes même si l'application paniquait manuellement ou tentait de
 faire un `Exit`, du fait que les différents `syscall` n'y sont pas implémentés.
-Cependant, lorsque nous souhaitions effectuer des test de performances,
+Cependant, lorsque nous souhaitions effectuer des tests de performances,
 l'ensemble crashait subitement de manière non déterministe. En outre, le fait
 qu'il soit relativement aisé de récupérer les logs propres à une instance avec
 UniK peut être pratique pour *debug* une application.
@@ -141,7 +141,7 @@ nous avons lancé à chaque fois 10 000 simulations.
 | Go sur VM Debian 9 | 0.715 | 0.559 | 7.155 | 0.705 |
 | Java sur VM Debian 9 | 1.102 | 0.676 | 20.548 | 0.909 |
 
-On constate sur le tableau \ref{table_req_time} que l'on a des temps de réponse
+On constate sur la table \ref{table_req_time} que l'on a des temps de réponse
 similaires pour le serveur web écrit en Java, qu'on soit sur une base
 d'unikernel OSv ou dans une VM Debian 9. Le serveur web écrit en Go quant à lui
 répond plus rapidement que celui en Java lorsqu'il est sur Debian 9, et met plus
@@ -174,7 +174,7 @@ conteneurs qui est de plus en plus utilisé.
 
 ## Conclusion
 
-Bien que le projet n'est pas encore tout à fait mature pour être lancé en
+Bien que le projet ne soit pas encore tout à fait mature pour être lancé en
 production, il est prometteur et semble s'adapter aux besoins actuels, qui sont
 notamment le fait de pouvoir s'intégrer à des solutions d'orchestrations tels
 que Kubernetes.
