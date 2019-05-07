@@ -16,7 +16,7 @@ abstract: |
   Un idéal serait d'avoir les performances d'un conteneurs et l'isolation fournie par les machines virtuelles. C'est ce à quoi essayent de répondre les unikernels.
 
 # supervisors
-supervisor1_title: Enseignant référent
+supervisor1_title: Encadrant
 supervisor1: Pierre \textsc{David}
 supervisor2_title: Rapporteur
 supervisor2: Antoine \textsc{Gallais}

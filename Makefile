@@ -6,8 +6,8 @@ INPUTS := report/meta.yml \
 	report/3_unikernels.md \
 	report/4_differents_problemes.md \
 	report/5_differentes_solutions.md \
-	report/6_unik.md \
-	report/7_evaluation_performances.md \
+	report/6_evaluation_performances.md \
+	report/7_unik.md \
 	report/8_conclusion.md
 
 .PHONY: report

@@ -1,19 +1,18 @@
 # Unikernels
 
-![Architecture d'un système Linux
-classique\label{linux_archi}](img/linux_archi.png){width=400px}
+![Architecture d'un système Linux classique^[Source :
+<https://www.linux-india.org/characteristics-and-architecture-of-linux-oprating-system/>]\label{linux_archi}](img/linux_archi.png){width=400px}
 
-La figure \ref{linux_archi}^[Source :
-<https://www.linux-india.org/characteristics-and-architecture-of-linux-oprating-system/>]
-nous montre l'architecture d'un système Linux classique. On y retrouve toute la
-partie matérielle (CPU, RAM, disques, réseau, ...). Par dessus, le noyau linux,
-qui tourne dans l'espace noyau qui est un mode privilégié, qui va se charger de
-la gestion des processus, de la mémoire, du système de fichier, des différents
-pilotes de périphériques et de toute la couche protocolaire réseau. Les
-applications quant à elles, tournent dans l'espace utilisateur qui est un mode
-non privilégié. Pour accéder aux différentes ressources, l'application doit
-effectuer des appels systèmes (syscall). Ici, le noyau Linux permet une couche
-d'abstraction entre les applications et le matériel.
+La figure \ref{linux_archi} nous montre l'architecture d'un système Linux
+classique. On y retrouve toute la partie matérielle (CPU, RAM, disques, réseau,
+...). Par dessus, nous avons le noyau Linux, qui tourne dans l'espace noyau qui
+est un mode privilégié, qui va se charger de la gestion des processus, de la
+mémoire, du système de fichier, des différents pilotes de périphériques et de
+toute la couche protocolaire réseau. Les applications quant à elles, tournent
+dans l'espace utilisateur qui est un mode non privilégié. Pour accéder aux
+différentes ressources, l'application doit effectuer des appels système
+(`syscall`). Ici, le noyau Linux permet une couche d'abstraction entre les
+applications et le matériel.
 
 ![Architecture d'un système d'exploitation
 bibliothèque\label{libos}](img/libos.svg){width=240px}
@@ -28,7 +27,7 @@ anglais. Le but de cette architecture que l'on retrouve sur la figure
 \ref{libos} est d'exécuter un maximum de code dans l'espace utilisateur
 directement, et de n'avoir qu'un noyau minimaliste. Cette architecture permet
 également aux applications et aux librairies d'accéder directement au matériel
-si elles le souhaitent. Les premiers systèmes d'exploitations de ce type étaient
+si elles le souhaitent. Les premiers systèmes d'exploitation de ce type étaient
 Exokernel [@engler1995] et
 Nemesis^[<https://www.cl.cam.ac.uk/research/srg/netos/projects/archive/nemesis/>]
 dans les années 1990s.
@@ -36,8 +35,8 @@ dans les années 1990s.
 Le principe des unikernels est qu'au lieu de lancer un système d'exploitation
 classique composé d'un grand nombre d'applications, il va se charger de ne faire
 tourner que le binaire d'une application, et donc de ne faire tourner qu'un seul
-processus [@zhang2018]. On va ainsi uniquement utiliser les briques dont
-l'application a réellement besoin pour fonctionner.
+processus [@zhang2018] au sein d'un seul espace mémoire. On va ainsi uniquement
+utiliser les briques dont l'application a réellement besoin pour fonctionner.
 
 Pour éviter d'avoir à prendre en charge l'ensemble des périphériques possibles,
 dans les cas des unikernels on va partir du principe qu'il tournera dans une

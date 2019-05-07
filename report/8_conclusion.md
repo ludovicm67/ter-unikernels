@@ -3,7 +3,10 @@
 Les unikernels offrent des avantages certains, tels que de très bonnes
 performances avec une sécurité plus importante que lors de l'utilisation de
 conteneurs comme Docker^[<https://www.docker.com/>] par exemple, tout en ayant
-une faible empreinte mémoire.
+une faible empreinte mémoire. En effet, les mesures que nous avons pu faire avec
+UniK nous montrent que les unikernels sont certes légèrement moins performants
+que les conteneurs, mais offrent un gain non négligeable en termes de sécurité
+ainsi que des images bien plus légères.
 
 Cependant, construire une image spécifique pour chaque application est très
 coûteux en termes de temps, du fait que chaque application a ses propres besoins,

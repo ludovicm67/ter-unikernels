@@ -1,6 +1,6 @@
 # Introduction
 
-Aujourd'hui de plus en plus de services sont proposés aux utilisateurs. Le
+Aujourd'hui, de plus en plus de services sont proposés aux utilisateurs. Le
 nombre de ressources à traiter est également fortement croissant et c'est ainsi
 que de nouveaux centres de données sont construits au fur et à mesure partout
 dans le monde.
@@ -18,7 +18,7 @@ Les fournisseurs de services souhaitent gagner en qualité pour faire face à la
 concurrence. Cette qualité se traduit notamment par une démultiplication des
 données à travers le globe : cela rapproche le contenu des utilisateurs finaux,
 diminue les temps de latence, et permet d'être plus robuste en cas de panne. En
-effet il y aura toujours une machine présente pour prendre le relais. On gagne
+effet, il y aura toujours une machine présente pour prendre le relais. On gagne
 donc en souplesse en étant capable d'adapter l'offre et la demande en temps
 réel.
 

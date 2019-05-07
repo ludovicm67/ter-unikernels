@@ -17,7 +17,7 @@ unikernels \label{table_eval_metrics}
 | OSv       | performances de l'application, taille du tas, réseau, changements de contexte |
 | KylinX    | temps de boot, utilisation mémoire, communication inter-pVM, mise à jour de l'environnement d'exécution (bibliothèques), performances d'applications |
 | MirageOS  | temps de boot, threads, réseau, stockage, performances d'application |
-| Jitsu | débits, latences réseaux, latence démarrage du service, puissance utilisée / autonomie, sécurité |
+| Jitsu | débits, latences réseau, latence démarrage du service, puissance utilisée / autonomie, sécurité |
 | LightVM | temps d'instanciation, temps de migration, utilisation CPU, empreinte mémoire |
 
 La table \ref{table_eval_metrics} est une vision d'ensemble des différentes
@@ -31,7 +31,8 @@ de cette partie.
 Cependant reprendre les chiffres obtenus dans les différents papiers de
 recherche n'a pas spécialement de sens, étant donné qu'ils utilisent chacun une
 configuration différente pour effectuer les différents tests. Le but de cette
-partie est donc véritablement de voir ce qui est mesuré et comment.
+partie est donc véritablement de voir ce qui est mesuré et comment, en fonction
+de ce qui est précisé par les différents auteurs.
 
 ## OSv
 
@@ -39,15 +40,15 @@ Ils utilisent `Memaslap` pour mesurer les performances de Memcached, un serveur
 de stockage clé-valeur et `SPECjvm2008` pour mesurer les performances
 d'application dans la JVM.
 
-Les performances réseaux ont quant à elles été mesurées avec `Netperf`, et la
+Les performances réseau ont quant à elles été mesurées avec `Netperf`, et la
 taille du tas avec `JVM balloon`.
 
 ## KylinX
 
-Le papier de recherche ne décrit pas spécifiquement quels outils ont été
-utilisés pour faire les différentes mesures. Nénmoins, la mesure de la
-communication inter-pVM a été faire en mesurant la latence de communication
-entre la pVM mère et la pVM fille, possiblement avec un `ping`.
+[@zhang2018] ne décrit pas spécifiquement quels outils ont été utilisés pour
+faire les différentes mesures. Néanmoins, la mesure de la communication
+inter-pVM a été faire en mesurant la latence de communication entre la pVM mère
+et la pVM fille, possiblement avec un `ping`.
 
 ## MirageOS
 
@@ -59,8 +60,8 @@ ont mis en place un serveur web et mesuré les performances avec l'aide de
 ## Jitsu
 
 Tout comme MirageOS, la mesure des débits est fait avec `iperf`, les latences
-réseaux avec `ping`, la latence de démarrage de service en regardant combien de
-temps cela prends avant que ça ne réponde aux différentes requêtes. Un point
+réseau avec `ping`, la latence de démarrage de service en regardant combien de
+temps cela prend avant que ça ne réponde aux différentes requêtes. Un point
 intéressant est qu'ils utilisent une Cubieboard, qui est un nano-ordinateur,
 pour mesurer la puissance utilisée ainsi que pour tester l'autonomie. Pour
 mesurer la sécurité de leur solution, ils ont pris la liste des dernières
@@ -70,5 +71,5 @@ ou non vulnérable.
 ## LightVM
 
 Il n'est pas précisé la manière dont sont évalués le temps d'instanciation ainsi
-que l'emprunte mémoire. Ils utilisent cependant `iostat` pour mesurer
+que l'empreinte mémoire. Ils utilisent cependant `iostat` pour mesurer
 l'utilisation du CPU.
