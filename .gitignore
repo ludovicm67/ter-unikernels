@@ -4,7 +4,10 @@
 *.sav
 report.*
 !sujet.pdf
+!rapport_final.pdf
+!rapport_intermediaire.pdf
 .vscode/
 bench_tests/httpd_go/httpd_go
 bench_tests/httpd_java/target/
+bench_tests/httpd_java/.*
 !img/icube.pdf

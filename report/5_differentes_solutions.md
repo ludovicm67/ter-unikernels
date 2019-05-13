@@ -133,8 +133,8 @@ servir des applications à la demande. Les auteurs ont fait quelques
 optimisations sur Xen, notamment pour le faire fonctionner sous ARM.
 
 ![Principe de fonctionnement de Jitsu (extrait du dépôt GitHub du
-projet)^[Source :
-<https://github.com/mirage/jitsu>]\label{jitsu_fig}](img/jitsu.jpg){width=300px}
+projet^[Source :
+<https://github.com/mirage/jitsu>])\label{jitsu_fig}](img/jitsu.jpg){width=300px}
 
 Cette solution permet de *booter* des unikernels à la demande suite à une simple
 requête DNS, comme on peut le voir sur la figure \ref{jitsu_fig}. Par exemple
